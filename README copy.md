@@ -207,3 +207,7 @@ If you have any questions, comments or suggestions, please do not hesitate to co
 
 ## License
 [Apache License 2.0](LICENSE.txt)
+
+git add .
+git commit -m "xxx"
+git push
