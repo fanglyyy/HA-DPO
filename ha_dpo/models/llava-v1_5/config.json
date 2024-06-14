@@ -1,0 +1,4 @@
+{
+    "data_path" : "/root/autodl-tmp/HA-DPO/ha_dpo/data/hadpo/llava-v1.5/test.jsonl",
+    "model_path" : "/root/autodl-tmp/MLLM/liuhaotian/llava-v1.5-7b-lora"
+}

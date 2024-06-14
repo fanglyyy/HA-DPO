@@ -1,0 +1,175 @@
+2024-06-13 22:59:12,960 INFO    StreamThr :76387 [internal.py:wandb_internal():86] W&B internal server running at pid: 76387, started at: 2024-06-13 22:59:12.959241
+2024-06-13 22:59:12,963 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status
+2024-06-13 22:59:12,964 INFO    WriterThread:76387 [datastore.py:open_for_write():87] open: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/run-fuojzjkx.wandb
+2024-06-13 22:59:12,965 DEBUG   SenderThread:76387 [sender.py:send():382] send: header
+2024-06-13 22:59:12,965 DEBUG   SenderThread:76387 [sender.py:send():382] send: run
+2024-06-13 22:59:13,681 INFO    SenderThread:76387 [dir_watcher.py:__init__():211] watching files in: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files
+2024-06-13 22:59:13,681 INFO    SenderThread:76387 [sender.py:_start_run_threads():1136] run started: fuojzjkx with start time 1718290752.95938
+2024-06-13 22:59:13,689 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: check_version
+2024-06-13 22:59:13,689 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: check_version
+2024-06-13 22:59:13,899 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: run_start
+2024-06-13 22:59:13,908 DEBUG   HandlerThread:76387 [system_info.py:__init__():27] System info init
+2024-06-13 22:59:13,908 DEBUG   HandlerThread:76387 [system_info.py:__init__():42] System info init done
+2024-06-13 22:59:13,908 INFO    HandlerThread:76387 [system_monitor.py:start():194] Starting system monitor
+2024-06-13 22:59:13,908 INFO    SystemMonitor:76387 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-06-13 22:59:13,909 INFO    HandlerThread:76387 [system_monitor.py:probe():214] Collecting system info
+2024-06-13 22:59:13,910 INFO    SystemMonitor:76387 [interfaces.py:start():190] Started cpu monitoring
+2024-06-13 22:59:13,911 INFO    SystemMonitor:76387 [interfaces.py:start():190] Started disk monitoring
+2024-06-13 22:59:13,911 INFO    SystemMonitor:76387 [interfaces.py:start():190] Started gpu monitoring
+2024-06-13 22:59:13,912 INFO    SystemMonitor:76387 [interfaces.py:start():190] Started memory monitoring
+2024-06-13 22:59:13,915 INFO    SystemMonitor:76387 [interfaces.py:start():190] Started network monitoring
+2024-06-13 22:59:13,928 DEBUG   HandlerThread:76387 [system_info.py:probe():151] Probing system
+2024-06-13 22:59:13,933 DEBUG   HandlerThread:76387 [gitlib.py:_init_repo():56] git repository is invalid
+2024-06-13 22:59:13,933 DEBUG   HandlerThread:76387 [system_info.py:probe():199] Probing system done
+2024-06-13 22:59:13,933 DEBUG   HandlerThread:76387 [system_monitor.py:probe():223] {'os': 'Linux-5.4.0-99-generic-x86_64-with-glibc2.31', 'python': '3.9.18', 'heartbeatAt': '2024-06-13T14:59:13.928716', 'startedAt': '2024-06-13T14:59:12.949239', 'docker': None, 'cuda': None, 'args': ('--local_rank=0', '--lora_enable', 'True', '--lora_r', '128', '--lora_alpha', '256', '--mm_projector_lr', '0', '--deepspeed', 'ha_dpo/models/llava-v1_5/scripts/zero3.json', '--model_name_or_path', '/root/autodl-tmp/MLLM/liuhaotian/llava-v1.5-7b-lora', '--version', 'v1', '--vg_path', 'ha_dpo/data/VG', '--desc_data_path', 'ha_dpo/data/hadpo/llava-v1.5/desc_data.json', '--pope_data_path', 'ha_dpo/data/hadpo/llava-v1.5/pope_data.json', '--vision_tower', 'openai/clip-vit-large-patch14-336', '--mm_projector_type', 'mlp2x_gelu', '--mm_vision_select_layer', '-2', '--mm_use_im_start_end', 'False', '--mm_use_im_patch_token', 'False', '--image_aspect_ratio', 'pad', '--group_by_modality_length', 'True', '--bf16', 'True', '--output_dir', 'ha_dpo/models/llava-v1_5/checkpoints/{model_name}', '--num_train_epochs', '1', '--per_device_train_batch_size', '1', '--per_device_eval_batch_size', '1', '--gradient_accumulation_steps', '16', '--evaluation_strategy', 'no', '--save_strategy', 'steps', '--save_steps', '50000', '--save_total_limit', '1', '--learning_rate', '2e-6', '--weight_decay', '0.', '--warmup_steps', '0', '--lr_scheduler_type', 'cosine', '--logging_steps', '1', '--tf32', 'True', '--model_max_length', '2048', '--gradient_checkpointing', 'True', '--dataloader_num_workers', '4', '--lazy_preprocess', 'True', '--report_to', 'wandb', '--run_name', 'llava-v1.5', '--beta', '0.1'), 'state': 'running', 'program': '/root/autodl-tmp/HA-DPO/ha_dpo/models/llava-v1_5/train_dpo.py', 'codePathLocal': 'ha_dpo/models/llava-v1_5/train_dpo.py', 'codePath': 'ha_dpo/models/llava-v1_5/train_dpo.py', 'host': 'autodl-container-a25511bdfa-3d2f2b7f', 'username': 'root', 'executable': '/root/autodl-tmp/condaenv/env_HA-DPO/bin/python', 'cpu_count': 40, 'cpu_count_logical': 80, 'cpu_freq': {'current': 3000.016999999995, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}, {'current': 3000.017, 'min': 0.0, 'max': 0.0}], 'disk': {'/': {'total': 30.0, 'used': 15.653900146484375}}, 'gpu': 'NVIDIA A100-PCIE-40GB', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA A100-PCIE-40GB', 'memory_total': 42949672960}], 'memory': {'total': 629.8885612487793}}
+2024-06-13 22:59:13,934 INFO    HandlerThread:76387 [system_monitor.py:probe():224] Finished collecting system info
+2024-06-13 22:59:13,934 INFO    HandlerThread:76387 [system_monitor.py:probe():227] Publishing system info
+2024-06-13 22:59:13,934 DEBUG   HandlerThread:76387 [system_info.py:_save_conda():208] Saving list of conda packages installed into the current environment
+2024-06-13 22:59:13,937 ERROR   HandlerThread:76387 [system_info.py:_save_conda():219] Error saving conda packages: [Errno 2] No such file or directory: 'conda'
+Traceback (most recent call last):
+  File "/root/autodl-tmp/condaenv/env_HA-DPO/lib/python3.9/site-packages/wandb/sdk/internal/system/system_info.py", line 215, in _save_conda
+    subprocess.call(
+  File "/root/autodl-tmp/condaenv/env_HA-DPO/lib/python3.9/subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/root/autodl-tmp/condaenv/env_HA-DPO/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/root/autodl-tmp/condaenv/env_HA-DPO/lib/python3.9/subprocess.py", line 1837, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2024-06-13 22:59:13,938 DEBUG   HandlerThread:76387 [system_info.py:_save_conda():220] Saving conda packages done
+2024-06-13 22:59:13,939 INFO    HandlerThread:76387 [system_monitor.py:probe():229] Finished publishing system info
+2024-06-13 22:59:13,941 DEBUG   SenderThread:76387 [sender.py:send():382] send: files
+2024-06-13 22:59:13,941 INFO    SenderThread:76387 [sender.py:_save_file():1403] saving file wandb-metadata.json with policy now
+2024-06-13 22:59:13,946 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: python_packages
+2024-06-13 22:59:13,947 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: python_packages
+2024-06-13 22:59:13,947 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 22:59:13,947 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 22:59:13,949 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 22:59:14,379 DEBUG   SenderThread:76387 [sender.py:send():382] send: telemetry
+2024-06-13 22:59:14,379 DEBUG   SenderThread:76387 [sender.py:send():382] send: config
+2024-06-13 22:59:14,380 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:14,380 DEBUG   SenderThread:76387 [sender.py:send():382] send: telemetry
+2024-06-13 22:59:14,380 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:14,381 WARNING SenderThread:76387 [sender.py:send_metric():1354] Seen metric with glob (shouldn't happen)
+2024-06-13 22:59:14,682 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_created():271] file/dir created: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/conda-environment.yaml
+2024-06-13 22:59:14,683 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_created():271] file/dir created: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/output.log
+2024-06-13 22:59:14,683 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_created():271] file/dir created: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/wandb-metadata.json
+2024-06-13 22:59:14,683 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_created():271] file/dir created: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/requirements.txt
+2024-06-13 22:59:15,002 INFO    wandb-upload_0:76387 [upload_job.py:push():131] Uploaded file /tmp/tmpfpa2dkpjwandb/bzfmbgm0-wandb-metadata.json
+2024-06-13 22:59:16,682 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/output.log
+2024-06-13 22:59:18,514 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 22:59:20,684 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/output.log
+2024-06-13 22:59:23,515 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 22:59:28,517 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 22:59:28,948 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 22:59:28,948 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 22:59:28,951 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 22:59:34,279 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 22:59:39,280 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 22:59:43,948 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 22:59:43,948 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 22:59:43,951 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 22:59:45,199 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 22:59:45,693 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/config.yaml
+2024-06-13 22:59:50,522 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 22:59:52,200 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: partial_history
+2024-06-13 22:59:52,203 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,204 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,204 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,204 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,204 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,204 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,204 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,204 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,204 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,205 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,205 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,205 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,205 DEBUG   SenderThread:76387 [sender.py:send():382] send: metric
+2024-06-13 22:59:52,205 DEBUG   SenderThread:76387 [sender.py:send():382] send: history
+2024-06-13 22:59:52,205 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: summary_record
+2024-06-13 22:59:52,207 INFO    SenderThread:76387 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-06-13 22:59:52,696 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_created():271] file/dir created: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/wandb-summary.json
+2024-06-13 22:59:54,696 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/output.log
+2024-06-13 22:59:56,209 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 22:59:58,948 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 22:59:58,949 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 22:59:58,949 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 23:00:01,286 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:06,288 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:11,289 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:13,915 DEBUG   SystemMonitor:76387 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-06-13 23:00:13,917 DEBUG   SenderThread:76387 [sender.py:send():382] send: stats
+2024-06-13 23:00:13,948 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 23:00:13,949 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 23:00:13,953 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 23:00:16,304 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:16,705 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/config.yaml
+2024-06-13 23:00:21,624 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:24,565 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: partial_history
+2024-06-13 23:00:24,567 DEBUG   SenderThread:76387 [sender.py:send():382] send: history
+2024-06-13 23:00:24,568 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: summary_record
+2024-06-13 23:00:24,571 INFO    SenderThread:76387 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-06-13 23:00:24,708 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/wandb-summary.json
+2024-06-13 23:00:26,709 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/output.log
+2024-06-13 23:00:27,573 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:28,948 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 23:00:28,949 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 23:00:28,952 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 23:00:33,298 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:38,299 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:43,301 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:43,918 DEBUG   SenderThread:76387 [sender.py:send():382] send: stats
+2024-06-13 23:00:43,948 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 23:00:43,949 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 23:00:43,992 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 23:00:49,257 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:54,259 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:00:57,251 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: partial_history
+2024-06-13 23:00:57,254 DEBUG   SenderThread:76387 [sender.py:send():382] send: history
+2024-06-13 23:00:57,254 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: summary_record
+2024-06-13 23:00:57,254 INFO    SenderThread:76387 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-06-13 23:00:57,719 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/wandb-summary.json
+2024-06-13 23:00:58,719 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/output.log
+2024-06-13 23:00:58,948 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 23:00:58,949 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 23:00:58,952 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 23:01:00,239 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:05,240 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:10,242 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:13,919 DEBUG   SenderThread:76387 [sender.py:send():382] send: stats
+2024-06-13 23:01:13,949 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 23:01:13,949 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 23:01:13,952 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 23:01:15,298 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:20,300 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:25,301 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:28,949 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 23:01:28,950 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 23:01:28,992 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 23:01:29,827 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: partial_history
+2024-06-13 23:01:29,828 DEBUG   SenderThread:76387 [sender.py:send():382] send: history
+2024-06-13 23:01:29,829 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: summary_record
+2024-06-13 23:01:29,830 INFO    SenderThread:76387 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-06-13 23:01:30,732 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/output.log
+2024-06-13 23:01:30,733 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/wandb-summary.json
+2024-06-13 23:01:30,831 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:35,832 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:40,833 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:43,920 DEBUG   SenderThread:76387 [sender.py:send():382] send: stats
+2024-06-13 23:01:43,950 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 23:01:43,950 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 23:01:43,953 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 23:01:46,217 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:51,218 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:56,219 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:01:58,950 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: stop_status
+2024-06-13 23:01:58,951 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: stop_status
+2024-06-13 23:01:58,953 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: internal_messages
+2024-06-13 23:02:01,917 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: status_report
+2024-06-13 23:02:01,960 DEBUG   HandlerThread:76387 [handler.py:handle_request():146] handle_request: partial_history
+2024-06-13 23:02:01,962 DEBUG   SenderThread:76387 [sender.py:send():382] send: history
+2024-06-13 23:02:01,963 DEBUG   SenderThread:76387 [sender.py:send_request():409] send_request: summary_record
+2024-06-13 23:02:01,963 INFO    SenderThread:76387 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-06-13 23:02:02,744 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/output.log
+2024-06-13 23:02:02,744 INFO    Thread-12 :76387 [dir_watcher.py:_on_file_modified():288] file/dir modified: /root/autodl-tmp/HA-DPO/wandb/run-20240613_225912-fuojzjkx/files/wandb-summary.json
