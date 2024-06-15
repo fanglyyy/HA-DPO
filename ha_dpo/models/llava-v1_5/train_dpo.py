@@ -220,6 +220,7 @@ class LazySupervisedDataset(Dataset):
         pope_data_dict = self.pope_process(pope_data)
         #list_data_dict = pope_data_dict + desc_data_dict*2
         list_data_dict = pope_data_dict[0:10]
+        print(list_data_dict)
 
         # my_data = [] # mydata是我们自己的test.jsonl数据集，格式正确无需处理
         # with open(my_data_path, 'r', encoding='utf-8') as file:
