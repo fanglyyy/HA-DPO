@@ -590,14 +590,14 @@ def setup_llava_model(model_args, data_args, script_args):
             padding_side="right"
         )
     else:
-        # tokenizer = transformers.AutoTokenizer.from_pretrained(
-        #     model_args.model_name_or_path,
-        #     cache_dir=script_args.cache_dir,
-        #     model_max_length=script_args.model_max_length,
-        #     padding_side="right",
-        #     use_fast=False,
-        # )
-        tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
+        tokenizer = transformers.AutoTokenizer.from_pretrained(
+            model_args.model_name_or_path,
+            cache_dir=script_args.cache_dir,
+            model_max_length=script_args.model_max_length,
+            padding_side="right",
+            use_fast=False,
+        )
+        #tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
 
 
     if model_args.version == "v0":
