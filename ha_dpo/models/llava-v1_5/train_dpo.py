@@ -41,7 +41,6 @@ local_rank = None
 @dataclass
 class ModelArguments:
     model_name_or_path: Optional[str] = field(default="facebook/opt-125m")
-    model_base: str = field(default="vicuna")
     version: Optional[str] = field(default="v0")
     freeze_backbone: bool = field(default=False)
     tune_mm_mlp_adapter: bool = field(default=False)
@@ -536,60 +535,11 @@ def setup_llava_model(model_args, data_args, script_args):
                 **bnb_model_from_pretrained_args
             )
         else:
-            # model = LlavaLlamaForCausalLM.from_pretrained(
-            #     model_args.model_name_or_path,
-            #     cache_dir=script_args.cache_dir,
-            #     **bnb_model_from_pretrained_args
-            # )
-            lora_cfg_pretrained = AutoConfig.from_pretrained(model_args.model_name_or_path)
-            #tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
-            print('Loading LLaVA from base model...')
-            #model_base = "/root/autodl-tmp/model/LLM/vicuna-7b-v1.5"
-            model_base = model_args.model_base 
-            kwargs = {'device_map': 'cuda:0', 'torch_dtype': torch.float16}
-            # quantization
-            load_8bit, load_4bit = False, False
-            if load_8bit:
-                kwargs['load_in_8bit'] = True
-            elif load_4bit:
-                kwargs['load_in_4bit'] = True
-                kwargs['quantization_config'] = BitsAndBytesConfig(
-                    load_in_4bit=True,
-                    bnb_4bit_compute_dtype=torch.float16,
-                    bnb_4bit_use_double_quant=True,
-                    bnb_4bit_quant_type='nf4'
-                )
-
-            model = LlavaLlamaForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=lora_cfg_pretrained, **kwargs)
-            token_num, tokem_dim = model.lm_head.out_features, model.lm_head.in_features
-            if model.lm_head.weight.shape[0] != token_num:
-                model.lm_head.weight = torch.nn.Parameter(torch.empty(token_num, tokem_dim, device=model.device, dtype=model.dtype))
-                model.model.embed_tokens.weight = torch.nn.Parameter(torch.empty(token_num, tokem_dim, device=model.device, dtype=model.dtype))
-
-            print('Loading additional LLaVA weights...')
-            if os.path.exists(os.path.join(model_args.model_name_or_path, 'non_lora_trainables.bin')):
-                non_lora_trainables = torch.load(os.path.join(model_args.model_name_or_path, 'non_lora_trainables.bin'), map_location='cpu')
-            else:
-                # this is probably from HF Hub
-                from huggingface_hub import hf_hub_download
-                def load_from_hf(repo_id, filename, subfolder=None):
-                    cache_file = hf_hub_download(
-                        repo_id=repo_id,
-                        filename=filename,
-                        subfolder=subfolder)
-                    return torch.load(cache_file, map_location='cpu')
-                non_lora_trainables = load_from_hf(model_args.model_name_or_path, 'non_lora_trainables.bin')
-            non_lora_trainables = {(k[11:] if k.startswith('base_model.') else k): v for k, v in non_lora_trainables.items()}
-            if any(k.startswith('model.model.') for k in non_lora_trainables):
-                non_lora_trainables = {(k[6:] if k.startswith('model.') else k): v for k, v in non_lora_trainables.items()}
-            model.load_state_dict(non_lora_trainables, strict=False)
-
-            from peft import PeftModel
-            print('Loading LoRA weights...')
-            model = PeftModel.from_pretrained(model, model_args.model_name_or_path)
-            print('Merging LoRA weights...')
-            model = model.merge_and_unload()
-            print('Model is loaded...')
+            model = LlavaLlamaForCausalLM.from_pretrained(
+                model_args.model_name_or_path,
+                cache_dir=script_args.cache_dir,
+                **bnb_model_from_pretrained_args
+            )     
     else:
         model = transformers.LlamaForCausalLM.from_pretrained(
             model_args.model_name_or_path,
