@@ -57,7 +57,7 @@ class DataArguments:
     vg_path: str = field(default=None, metadata={"help": "Path to the Visual Genome data."})
     desc_data_path: str = field(default=None, metadata={"help": "Path to the training data."})
     pope_data_path: str = field(default=None, metadata={"help": "Path to the training data."})
-    #my_data_path: str = field(default=None, metadata={"help": "Path to the training data."})
+    my_data_path: str = field(default=None, metadata={"help": "Path to the training data."})
     lazy_preprocess: bool = False
     is_multimodal: bool = False
     image_folder: Optional[str] = field(default="")
@@ -198,7 +198,7 @@ class LazySupervisedDataset(Dataset):
         vg_path: str,
         desc_data_path: str,
         pope_data_path: str,
-        #my_data_path: str,
+        my_data_path: str,
         tokenizer: transformers.PreTrainedTokenizer,
         data_args: DataArguments,
         sample_strategy: str = "offline",
@@ -219,15 +219,16 @@ class LazySupervisedDataset(Dataset):
         desc_data_dict = self.desc_process(desc_data, sample_strategy)
         pope_data_dict = self.pope_process(pope_data)
         #list_data_dict = pope_data_dict + desc_data_dict*2
-        list_data_dict = pope_data_dict[0:10]
-        print(list_data_dict)
+        #list_data_dict = pope_data_dict[0:10]
+        #print(list_data_dict)
 
-        # my_data = [] # mydata是我们自己的test.jsonl数据集，格式正确无需处理
-        # with open(my_data_path, 'r', encoding='utf-8') as file:
-        #     for line in file:
-        #         d = json.loads(line.strip())
-        #         my_data.append(d)
-        # list_data_dict = my_data  
+        my_data = [] # mydata是我们自己的test.jsonl数据集，格式正确无需处理
+        with open(my_data_path, 'r', encoding='utf-8') as file:
+            for line in file:
+                d = json.loads(line.strip())
+                my_data.append(d)
+        list_data_dict = my_data  
+        print(list_data_dict)
         
         rank0_print("Formatting inputs...Skip in lazy mode")
         self.tokenizer = tokenizer
@@ -422,7 +423,7 @@ def make_supervised_data_module(tokenizer: transformers.PreTrainedTokenizer,
                                 vg_path=data_args.vg_path,
                                 desc_data_path=data_args.desc_data_path,
                                 pope_data_path=data_args.pope_data_path,
-                                #my_data_path = data_args.my_data_path,
+                                my_data_path = data_args.my_data_path,
                                 data_args=data_args)
     data_collator = DataCollatorForSupervisedDataset(tokenizer=tokenizer)
     return dict(train_dataset=train_dataset,
