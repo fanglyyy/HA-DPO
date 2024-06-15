@@ -56,9 +56,9 @@ class ModelArguments:
 @dataclass
 class DataArguments:
     vg_path: str = field(default=None, metadata={"help": "Path to the Visual Genome data."})
-    # desc_data_path: str = field(default=None, metadata={"help": "Path to the training data."})
-    # pope_data_path: str = field(default=None, metadata={"help": "Path to the training data."})
-    my_data_path: str = field(default=None, metadata={"help": "Path to the training data."})
+    desc_data_path: str = field(default=None, metadata={"help": "Path to the training data."})
+    pope_data_path: str = field(default=None, metadata={"help": "Path to the training data."})
+    #my_data_path: str = field(default=None, metadata={"help": "Path to the training data."})
     lazy_preprocess: bool = False
     is_multimodal: bool = False
     image_folder: Optional[str] = field(default="")
@@ -197,9 +197,9 @@ class LazySupervisedDataset(Dataset):
     def __init__(self, 
         #data_path: str,
         vg_path: str,
-        # desc_data_path: str,
-        # pope_data_path: str,
-        my_data_path: str,
+        desc_data_path: str,
+        pope_data_path: str,
+        #my_data_path: str,
         tokenizer: transformers.PreTrainedTokenizer,
         data_args: DataArguments,
         sample_strategy: str = "offline",
@@ -214,20 +214,20 @@ class LazySupervisedDataset(Dataset):
         }
         
         #preprocess
-        # desc_data = json.load(open(desc_data_path, "r"))
-        # pope_data = json.load(open(pope_data_path, "r"))
-        # random.seed(seed)
-        # desc_data_dict = self.desc_process(desc_data, sample_strategy)
-        # pope_data_dict = self.pope_process(pope_data)
+        desc_data = json.load(open(desc_data_path, "r"))
+        pope_data = json.load(open(pope_data_path, "r"))
+        random.seed(seed)
+        desc_data_dict = self.desc_process(desc_data, sample_strategy)
+        pope_data_dict = self.pope_process(pope_data)
         #list_data_dict = pope_data_dict + desc_data_dict*2
-        # list_data_dict = pope_data_dict[15]
+        list_data_dict = pope_data_dict[10]
 
-        my_data = [] # mydata是我们自己的test.jsonl数据集，格式正确无需处理
-        with open(my_data_path, 'r', encoding='utf-8') as file:
-            for line in file:
-                d = json.loads(line.strip())
-                my_data.append(d)
-        list_data_dict = my_data  
+        # my_data = [] # mydata是我们自己的test.jsonl数据集，格式正确无需处理
+        # with open(my_data_path, 'r', encoding='utf-8') as file:
+        #     for line in file:
+        #         d = json.loads(line.strip())
+        #         my_data.append(d)
+        # list_data_dict = my_data  
         
         rank0_print("Formatting inputs...Skip in lazy mode")
         self.tokenizer = tokenizer
@@ -420,9 +420,9 @@ def make_supervised_data_module(tokenizer: transformers.PreTrainedTokenizer,
     """Make dataset and collator for supervised fine-tuning."""
     train_dataset = LazySupervisedDataset(tokenizer=tokenizer,
                                 vg_path=data_args.vg_path,
-                                # desc_data_path=data_args.desc_data_path,
-                                # pope_data_path=data_args.pope_data_path,
-                                my_data_path = data_args.my_data_path,
+                                desc_data_path=data_args.desc_data_path,
+                                pope_data_path=data_args.pope_data_path,
+                                #my_data_path = data_args.my_data_path,
                                 data_args=data_args)
     data_collator = DataCollatorForSupervisedDataset(tokenizer=tokenizer)
     return dict(train_dataset=train_dataset,
