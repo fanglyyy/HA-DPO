@@ -213,11 +213,11 @@ class LazySupervisedDataset(Dataset):
         }
         
         #preprocess
-        desc_data = json.load(open(desc_data_path, "r"))
-        pope_data = json.load(open(pope_data_path, "r"))
-        random.seed(seed)
-        desc_data_dict = self.desc_process(desc_data, sample_strategy)
-        pope_data_dict = self.pope_process(pope_data)
+        # desc_data = json.load(open(desc_data_path, "r"))
+        # pope_data = json.load(open(pope_data_path, "r"))
+        # random.seed(seed)
+        # desc_data_dict = self.desc_process(desc_data, sample_strategy)
+        # pope_data_dict = self.pope_process(pope_data)
         #list_data_dict = pope_data_dict + desc_data_dict*2
         #list_data_dict = pope_data_dict[0:10]
         #print(list_data_dict)
