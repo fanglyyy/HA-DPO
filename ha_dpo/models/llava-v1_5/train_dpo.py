@@ -228,7 +228,7 @@ class LazySupervisedDataset(Dataset):
                 d = json.loads(line.strip())
                 my_data.append(d)
         list_data_dict = my_data  
-        print(list_data_dict)
+        # print(list_data_dict)
         
         rank0_print("Formatting inputs...Skip in lazy mode")
         self.tokenizer = tokenizer
